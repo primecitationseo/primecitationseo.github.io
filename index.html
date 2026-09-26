@@ -74,6 +74,7 @@
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
+        <li><a href="#countries">Countries</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#process">Process</a></li>
         <li><a href="#faq">FAQ</a></li>
@@ -284,6 +285,31 @@
     </div>
   </section>
 
+  <!-- LOCAL CITATION SERVICES BY COUNTRY -->
+  <section class="section" id="countries">
+    <div class="container">
+      <div class="section-head">
+        <h2>Local Citation Services by Country</h2>
+        <p>Need local citations for a specific market? Select your target country to explore the relevant citation service and directory opportunities.</p>
+      </div>
+
+      <div class="country-toolbar">
+        <label class="country-search-wrap" for="country-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/></svg>
+          <input type="text" id="country-search" placeholder="Search your country&hellip;" autocomplete="off" aria-label="Search for a country">
+        </label>
+      </div>
+
+      <div class="country-selected-panel" id="country-selected-panel">
+        <p id="country-selected-message">Select a country below to see the relevant local citation service.</p>
+        <a href="#contact" class="btn btn-outline btn-sm" id="country-selected-cta">Contact Us</a>
+      </div>
+
+      <div id="country-groups"><!-- populated by script.js --></div>
+      <p class="country-empty" id="country-empty" hidden>No countries match your search. Try a different name, or <a href="#contact">contact us</a> about your market.</p>
+    </div>
+  </section>
+
   <!-- WHY CHOOSE US -->
   <section class="section section-alt" id="why-choose-us">
     <div class="container">
@@ -357,18 +383,26 @@
     <div class="container">
       <div class="section-head">
         <h2>Portfolio &amp; Case Studies</h2>
-        <p>Detailed case studies are prepared for each client individually and published here once available.</p>
+        <p>Explore selected local citation and business listing projects completed for clients across different markets. Each project is based on documented work and delivered citation reports.</p>
       </div>
       <div class="portfolio-grid" id="portfolio-grid"><!-- populated by script.js --></div>
     </div>
   </section>
+
+  <!-- PORTFOLIO PROJECT DETAILS MODAL -->
+  <div class="modal-overlay" id="portfolio-modal-overlay" hidden>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title" id="portfolio-modal-panel">
+      <button type="button" class="modal-close" id="portfolio-modal-close" aria-label="Close project details">&times;</button>
+      <div id="portfolio-modal-body"><!-- populated by script.js --></div>
+    </div>
+  </div>
 
   <!-- TESTIMONIALS -->
   <section class="section" id="testimonials">
     <div class="container">
       <div class="section-head">
         <h2>Testimonials</h2>
-        <p>Client feedback is shared here once verified.</p>
+        <p>Feedback from verified Fiverr clients.</p>
       </div>
       <div class="testimonial-grid" id="testimonial-grid"><!-- populated by script.js --></div>
     </div>
@@ -459,6 +493,7 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#countries">Countries</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#contact">Contact</a></li>

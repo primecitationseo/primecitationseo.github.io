@@ -53,12 +53,80 @@ const SITE_CONFIG = {
     // later"). Set a real url (and rename the label if you like) and it
     // automatically becomes a live, clickable card — no other changes needed.
     { key: "other", label: "Other Profile", sub: "Additional platform", url: "" }
+  ],
+
+  // Local Citation Services by Country. Renders the "Countries" section
+  // automatically — add, remove or reorder entries freely, no HTML changes
+  // needed. `region` groups the card under a regional heading (one of:
+  // "North America", "Europe", "Oceania", "Middle East", "Asia", "Africa",
+  // "Latin America"). `gigUrl` is either a real Fiverr gig link or a
+  // placeholder token ending in "_GIG_URL" — a placeholder shows as
+  // "Service Coming Soon" and links to Contact instead of a broken/fake
+  // Fiverr URL; a real URL becomes a live, working Fiverr button.
+  //
+  // All 40 countries below currently point to one of three real, live gigs:
+  //   Europe & UK/Ireland  -> https://www.fiverr.com/s/kXLWE1W
+  //   Australia/New Zealand -> https://www.fiverr.com/s/qbDvXpX
+  //   Everywhere else (global business listings gig) -> https://www.fiverr.com/s/DmB6AZP
+  // To point a country at a different gig later, just change its `gigUrl`.
+  countries: [
+    { name: "United States", region: "North America", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Canada", region: "North America", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+
+    { name: "United Kingdom", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Ireland", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Germany", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "France", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Spain", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Italy", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Netherlands", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Belgium", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Austria", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Switzerland", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Sweden", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Norway", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Denmark", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Finland", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Portugal", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Poland", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Czech Republic", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Romania", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Hungary", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+    { name: "Greece", region: "Europe", gigUrl: "https://www.fiverr.com/s/kXLWE1W" },
+
+    { name: "Australia", region: "Oceania", gigUrl: "https://www.fiverr.com/s/qbDvXpX" },
+    { name: "New Zealand", region: "Oceania", gigUrl: "https://www.fiverr.com/s/qbDvXpX" },
+
+    { name: "United Arab Emirates", region: "Middle East", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Saudi Arabia", region: "Middle East", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Qatar", region: "Middle East", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Israel", region: "Middle East", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+
+    { name: "Singapore", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Malaysia", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "India", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Japan", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "South Korea", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Philippines", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Indonesia", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Thailand", region: "Asia", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+
+    { name: "South Africa", region: "Africa", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+
+    { name: "Brazil", region: "Latin America", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Mexico", region: "Latin America", gigUrl: "https://www.fiverr.com/s/DmB6AZP" },
+    { name: "Argentina", region: "Latin America", gigUrl: "https://www.fiverr.com/s/DmB6AZP" }
   ]
 };
 
 /* Helper: treat any value ending in "_HERE" (or empty) as an unfilled placeholder */
 function isPlaceholder(value) {
   return !value || /_HERE$/.test(value.trim());
+}
+
+/* Helper: treat any value ending in "_GIG_URL" (or empty) as an unfilled Fiverr gig placeholder */
+function isGigPlaceholder(value) {
+  return !value || /_GIG_URL$/.test(value.trim());
 }
 
 /* =========================================================
@@ -117,6 +185,47 @@ const SERVICES = [
   { icon: "file", title: "Web 2.0 / Supporting Properties", desc: "Supporting content properties used where strategically appropriate.", href: "#google-stacking" }
 ];
 
+/* Country flags — Unicode flag emoji only, no icon library/images (keeps the section lightweight) */
+const COUNTRY_FLAGS = {
+  "United States": "🇺🇸", "Canada": "🇨🇦", "United Kingdom": "🇬🇧", "Ireland": "🇮🇪",
+  "Germany": "🇩🇪", "France": "🇫🇷", "Spain": "🇪🇸", "Italy": "🇮🇹", "Netherlands": "🇳🇱",
+  "Belgium": "🇧🇪", "Austria": "🇦🇹", "Switzerland": "🇨🇭", "Sweden": "🇸🇪", "Norway": "🇳🇴",
+  "Denmark": "🇩🇰", "Finland": "🇫🇮", "Portugal": "🇵🇹", "Poland": "🇵🇱", "Czech Republic": "🇨🇿",
+  "Romania": "🇷🇴", "Hungary": "🇭🇺", "Greece": "🇬🇷", "Australia": "🇦🇺", "New Zealand": "🇳🇿",
+  "United Arab Emirates": "🇦🇪", "Saudi Arabia": "🇸🇦", "Qatar": "🇶🇦", "Israel": "🇮🇱",
+  "Singapore": "🇸🇬", "Malaysia": "🇲🇾", "India": "🇮🇳", "Japan": "🇯🇵", "South Korea": "🇰🇷",
+  "Philippines": "🇵🇭", "Indonesia": "🇮🇩", "Thailand": "🇹🇭", "South Africa": "🇿🇦",
+  "Brazil": "🇧🇷", "Mexico": "🇲🇽", "Argentina": "🇦🇷"
+};
+
+/* Region display order for the Countries section */
+const REGION_ORDER = ["North America", "Europe", "Oceania", "Middle East", "Asia", "Africa", "Latin America"];
+
+/* Used to phrase the regional country message, e.g. "...and other European markets." */
+const REGION_ADJECTIVES = {
+  "North America": "North American",
+  "Europe": "European",
+  "Oceania": "Oceania",
+  "Middle East": "Middle Eastern",
+  "Asia": "Asian",
+  "Africa": "African",
+  "Latin America": "Latin American"
+};
+
+/* Countries with their own dedicated Fiverr gig placeholder get their own
+   phrasing; everything else shares the regional phrasing (see the FAQ-style
+   examples in the brief: USA/Canada get their own line, Germany gets the
+   "...and other European markets" line). */
+const DEDICATED_GIG_COUNTRIES = ["United States", "Canada", "United Kingdom", "Australia", "New Zealand", "South Africa"];
+
+function countryMessage(c) {
+  if (DEDICATED_GIG_COUNTRIES.includes(c.name)) {
+    return `Explore our ${c.name} local citation and business listing services.`;
+  }
+  const adjective = REGION_ADJECTIVES[c.region] || c.region;
+  return `Explore local citation and business listing services for ${c.name} and other ${adjective} markets.`;
+}
+
 
 const FAQS = [
   { q: "What are local citations?", a: "Local citations are online mentions of a business's name, address and phone number (NAP), typically found on directories, review sites and other platforms." },
@@ -159,46 +268,167 @@ function renderServices() {
   });
 }
 
-/* To publish real projects, uncomment and fill in an array like this,
-   then swap renderPortfolio() below to map over it instead of rendering
-   the coming-soon panel. Keep every field factual — no invented results.
-
-const PORTFOLIO = [
-  { name: "", industry: "", location: "", services: "", challenge: "", approach: "", outcome: "" }
+/* Real, documented client projects. Data comes from completed citation
+   reports — only public, business-level facts are included here (no
+   usernames, passwords, emails, or other account/credential data, and no
+   invented rankings, traffic, leads, or revenue figures). Add a new
+   project by adding another object with the same shape; the grid and the
+   detail modal both render from this array automatically. */
+const PORTFOLIO_PROJECTS = [
+  {
+    name: "QuickestBuyer",
+    country: "United States",
+    location: "Cape Coral, Florida",
+    service: "USA Local Citation Building",
+    description: "Local citation and business listing work for a USA-based business in Cape Coral, Florida.",
+    deliverables: ["Local citation submissions", "Business directory listings", "Listing URL documentation", "Status/report tracking"],
+    sources: ["Cataloxy", "MerchantCircle", "CitySquares", "HomePros411", "GitHub", "BizMakers America"]
+  },
+  {
+    name: "Texas LED Neon Signs",
+    country: "United States",
+    location: "College Station, Texas",
+    service: "USA Local Citation Building",
+    description: "Local citation and business listing work for a USA-based business in College Station, Texas.",
+    deliverables: ["Local citation submissions", "Business directory listings", "Listing URL documentation", "Status/report tracking"],
+    sources: ["HubBiz", "Manta", "FindUsLocal", "PennySaver USA", "Free Business Directory", "Pinterest"]
+  },
+  {
+    name: "Aghmat Cars Marrakech",
+    country: "Morocco",
+    location: "Marrakech, Morocco",
+    service: "Local Citation Building",
+    description: "Local citation and business listing work for a car rental business in Marrakech, Morocco.",
+    deliverables: ["Local citation submissions", "Business/profile listings", "Listing URL documentation", "Status/report tracking"],
+    sources: ["Tripadvisor", "YellowPages.ma", "Infobel", "SlideShare", "Scribd", "Academia.edu"]
+  },
+  {
+    name: "Liberty Health Services",
+    country: "United States",
+    location: "",
+    service: "USA Local Citation Building",
+    description: "Local citation and business listing work for a USA-based health services business.",
+    deliverables: ["Local citation submissions", "Business directory listings", "Listing URL documentation", "Status/report tracking"],
+    sources: ["Yelp", "Manta", "PennySaver USA", "Free Business Directory", "A-Z Business Finder", "Pinterest"]
+  },
+  {
+    name: "Michael Strickland Productions",
+    country: "Canada",
+    location: "Vancouver, British Columbia",
+    service: "Canada Local Citation Building",
+    description: "Local citation and business listing work for a Canada-based business in Vancouver, British Columbia.",
+    deliverables: ["Local citation submissions", "Business directory listings", "Listing URL documentation", "Status/report tracking"],
+    sources: ["Yoys.ca", "MarketLister.ca", "DistrictLocal", "PlugVancouver", "ProfileCanada", "HealthyFamilyLiving"]
+  }
 ];
-*/
 
 function renderPortfolio() {
   const grid = document.getElementById("portfolio-grid");
   if (!grid) return;
-  grid.appendChild(el(`
-    <div class="coming-soon-panel">
-      <span class="coming-soon-icon">${ICONS.clipboard}</span>
-      <h3>Case studies coming soon</h3>
-      <p>Each project is documented individually with real details on the industry, approach and outcome. Published examples will appear in this section as they become available.</p>
-    </div>
-  `));
+
+  PORTFOLIO_PROJECTS.forEach((p, i) => {
+    const deliverables = p.deliverables.map(d => `<li>${d}</li>`).join("");
+    grid.appendChild(el(`
+      <article class="portfolio-card">
+        <span class="portfolio-market">${p.country}</span>
+        <h3>${p.name}</h3>
+        <p class="portfolio-service">${p.service}</p>
+        ${p.location ? `<p class="portfolio-location">${p.location}</p>` : ""}
+        <p class="portfolio-desc">${p.description}</p>
+        <ul class="portfolio-deliverables">${deliverables}</ul>
+        <button type="button" class="btn btn-outline btn-sm portfolio-details-btn" data-project-index="${i}">View Details</button>
+      </article>
+    `));
+  });
 }
 
-/* To publish real testimonials, uncomment and fill in an array like this,
-   then swap renderTestimonials() below to map over it instead of rendering
-   the coming-soon message. Only use feedback the client has verified.
+function setupPortfolioModal() {
+  const overlay = document.getElementById("portfolio-modal-overlay");
+  const panel = document.getElementById("portfolio-modal-panel");
+  const body = document.getElementById("portfolio-modal-body");
+  const closeBtn = document.getElementById("portfolio-modal-close");
+  const grid = document.getElementById("portfolio-grid");
+  if (!overlay || !panel || !body || !closeBtn || !grid) return;
 
+  let lastFocused = null;
+
+  function openModal(project) {
+    body.innerHTML = `
+      <p class="modal-label">Project</p>
+      <h3 class="modal-title" id="portfolio-modal-title">${project.name}</h3>
+
+      <p class="modal-label">Market</p>
+      <p class="modal-value">${project.country}</p>
+
+      ${project.location ? `<p class="modal-label">Location</p><p class="modal-value">${project.location}</p>` : ""}
+
+      <p class="modal-label">Service</p>
+      <p class="modal-value">${project.service}</p>
+
+      <p class="modal-label">Overview</p>
+      <p class="modal-value">${project.description}</p>
+
+      <p class="modal-label">Work Completed</p>
+      <p class="modal-value">Citation submissions and business/profile listing work with documented listing status tracking.</p>
+
+      <p class="modal-label">Documented Sources</p>
+      <p class="modal-value">${project.sources.join(", ")}</p>
+
+      <p class="modal-label">Deliverables</p>
+      <p class="modal-value">${project.deliverables.join(", ")}</p>
+    `;
+    lastFocused = document.activeElement;
+    overlay.hidden = false;
+    document.body.classList.add("modal-open");
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    overlay.hidden = true;
+    document.body.classList.remove("modal-open");
+    if (lastFocused) lastFocused.focus();
+  }
+
+  grid.addEventListener("click", (e) => {
+    const btn = e.target.closest(".portfolio-details-btn");
+    if (!btn) return;
+    const project = PORTFOLIO_PROJECTS[Number(btn.getAttribute("data-project-index"))];
+    if (project) openModal(project);
+  });
+
+  closeBtn.addEventListener("click", closeModal);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !overlay.hidden) closeModal();
+  });
+}
+
+/* Real, verified client reviews (Fiverr). Do not edit the wording — only
+   add new entries here as new verified reviews come in, using the same
+   shape: { quote, name, role, rating }. */
 const TESTIMONIALS = [
-  { quote: "", name: "", role: "" }
+  { quote: "looking forward to working with you again", name: "mykails1970", role: "Fiverr Client", rating: 5 },
+  { quote: "I had a great experience with their services. The team was professional, responsive, and helped improve my business\u2019s online visibility. I\u2019m very satisfied with the service and highly recommend them.", name: "raymond_diane", role: "Fiverr Client", rating: 5 },
+  { quote: "Fast delivery and excellent communication. The work was exactly as requested. Highly satisfied!", name: "theodore_032", role: "Fiverr Client", rating: 5 },
+  { quote: "Excellent service from start to finish. Accurate work, timely delivery, and great support. I would gladly work with this seller again!", name: "stevie_callan", role: "Fiverr Client", rating: 5 }
 ];
-*/
 
 function renderTestimonials() {
   const grid = document.getElementById("testimonial-grid");
   if (!grid) return;
-  grid.appendChild(el(`
-    <div class="coming-soon-panel">
-      <span class="coming-soon-icon">${ICONS.users}</span>
-      <h3>Client feedback coming soon</h3>
-      <p>Client feedback will be added here as verified testimonials become available.</p>
-    </div>
-  `));
+  TESTIMONIALS.forEach(t => {
+    const stars = "\u2605".repeat(t.rating) + "\u2606".repeat(5 - t.rating);
+    grid.appendChild(el(`
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="${t.rating} out of 5 stars">${stars}</div>
+        <p class="testimonial-quote">&ldquo;${t.quote}&rdquo;</p>
+        <p class="testimonial-name">${t.name}</p>
+        <p class="testimonial-role">${t.role}</p>
+      </article>
+    `));
+  });
 }
 
 function renderFAQ() {
@@ -340,16 +570,116 @@ function setupFooterYear() {
   if (y) y.textContent = new Date().getFullYear();
 }
 
+function renderCountries() {
+  const wrap = document.getElementById("country-groups");
+  if (!wrap) return;
+
+  const byRegion = {};
+  SITE_CONFIG.countries.forEach(c => {
+    (byRegion[c.region] = byRegion[c.region] || []).push(c);
+  });
+
+  const regions = REGION_ORDER.filter(r => byRegion[r] && byRegion[r].length);
+
+  regions.forEach(region => {
+    const group = el(`
+      <div class="country-region" data-region-group="${region}">
+        <h3 class="country-region-title">${region}</h3>
+        <div class="country-grid"></div>
+      </div>
+    `);
+    const grid = group.querySelector(".country-grid");
+
+    byRegion[region].forEach(c => {
+      const flag = COUNTRY_FLAGS[c.name] || "🌍";
+      const message = countryMessage(c);
+      const slug = c.name.toLowerCase();
+
+      let cta;
+      if (isGigPlaceholder(c.gigUrl)) {
+        cta = `<button type="button" class="btn btn-outline btn-sm country-cta" data-placeholder="true" data-message="${message}" aria-label="${c.name} service coming soon">Service Coming Soon</button>`;
+      } else {
+        cta = `<a class="btn btn-outline btn-sm country-cta" href="${c.gigUrl}" target="_blank" rel="noopener noreferrer" data-message="${message}" aria-label="${c.name} — view Fiverr service (opens in a new tab)">View Service &rarr;</a>`;
+      }
+
+      grid.appendChild(el(`
+        <article class="country-card" data-country="${slug}">
+          <span class="country-flag" aria-hidden="true">${flag}</span>
+          <h4 class="country-name">${c.name}</h4>
+          <p class="country-desc">Local citations &amp; business listings</p>
+          ${cta}
+        </article>
+      `));
+    });
+
+    wrap.appendChild(group);
+  });
+}
+
+function setupCountrySearch() {
+  const input = document.getElementById("country-search");
+  const wrap = document.getElementById("country-groups");
+  const empty = document.getElementById("country-empty");
+  if (!input || !wrap) return;
+
+  input.addEventListener("input", () => {
+    const query = input.value.trim().toLowerCase();
+    let anyVisible = false;
+
+    wrap.querySelectorAll(".country-region").forEach(group => {
+      let groupHasMatch = false;
+      group.querySelectorAll(".country-card").forEach(card => {
+        const match = !query || card.getAttribute("data-country").includes(query);
+        card.hidden = !match;
+        if (match) groupHasMatch = true;
+      });
+      group.hidden = !groupHasMatch;
+      if (groupHasMatch) anyVisible = true;
+    });
+
+    if (empty) empty.hidden = anyVisible;
+  });
+}
+
+function setupCountrySelection() {
+  const wrap = document.getElementById("country-groups");
+  const messageEl = document.getElementById("country-selected-message");
+  const ctaEl = document.getElementById("country-selected-cta");
+  if (!wrap || !messageEl || !ctaEl) return;
+
+  wrap.addEventListener("click", (e) => {
+    const cta = e.target.closest(".country-cta");
+    if (!cta) return;
+
+    messageEl.textContent = cta.getAttribute("data-message") || messageEl.textContent;
+
+    if (cta.hasAttribute("data-placeholder")) {
+      ctaEl.textContent = "Contact Us";
+      ctaEl.href = "#contact";
+      ctaEl.removeAttribute("target");
+    } else {
+      ctaEl.textContent = "View Service \u2192";
+      ctaEl.href = cta.getAttribute("href");
+      ctaEl.setAttribute("target", "_blank");
+      ctaEl.setAttribute("rel", "noopener noreferrer");
+    }
+  });
+}
+
 /* =========================================================
    INIT
    ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
   renderServices();
   renderPortfolio();
+  setupPortfolioModal();
   renderTestimonials();
   renderFAQ();
   renderSocial();
   renderContactDetails();
+  renderCountries();
+  setupCountrySearch();
+  setupCountrySelection();
   setupWhatsApp();
   setupNav();
   setupFooterYear();

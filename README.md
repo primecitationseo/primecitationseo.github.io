@@ -121,21 +121,29 @@ match one of the icons in the `ICONS` object further down in `script.js`
 
 ## D. Portfolio, testimonials, and trust points
 
-- **Portfolio:** the site currently shows a clean "Case studies coming soon"
-  panel instead of example projects, so nothing invented is shown
-  publicly. To add real projects, open `script.js`, find the commented
-  `PORTFOLIO` template just above `renderPortfolio()`, fill in real
-  `name`, `industry`, `location`, `services`, `challenge`, `approach` and
-  `outcome` values, then update `renderPortfolio()` to map over that array
-  and render `.portfolio-card` elements instead of the coming-soon panel
-  (matching CSS for `.portfolio-card`, `.portfolio-field`, etc. is already
-  in `style.css`).
-- **Testimonials:** the site currently shows a "Client feedback coming
-  soon" message. To add a real, verified testimonial, open `script.js`,
-  find the commented `TESTIMONIALS` template just above
-  `renderTestimonials()`, fill in real `quote`, `name` and `role` values,
-  then update `renderTestimonials()` to render them. Only add feedback the
-  client has actually given and approved for public use.
+- **Portfolio:** the site now shows five real, documented projects
+  (QuickestBuyer, Texas LED Neon Signs, Aghmat Cars Marrakech, Liberty
+  Health Services, Michael Strickland Productions) rendered from the
+  `PORTFOLIO_PROJECTS` array in `script.js`. Each entry is
+  `{ name, country, location, service, description, deliverables[],
+  sources[] }` — `location` can be left as `""` to omit it from a card
+  (used for Liberty Health Services, since no city was documented). To add
+  another project, add another object with the same shape; the card grid
+  and the "View Details" modal both render from this array automatically —
+  no HTML duplication needed. Keep entries factual: work completed,
+  service, market and documented source/directory names only — no
+  usernames, passwords, client emails, or invented rankings/traffic/
+  revenue figures.
+- **Portfolio details modal:** clicking "View Details" on a card opens a
+  lightweight vanilla-JS modal (`#portfolio-modal-overlay` in `index.html`,
+  `setupPortfolioModal()` in `script.js`) showing the project, market,
+  location, service, overview, work completed, documented sources and
+  deliverables. Closes via the × button, clicking outside the panel, or
+  Escape. No library — pure DOM + CSS.
+- **Testimonials:** four real, verified Fiverr reviews are live
+  (`TESTIMONIALS` array in `script.js`) — do not edit their wording,
+  ratings or usernames. To add a new verified review later, add another
+  `{ quote, name, role, rating }` object to that same array.
 - **Trust points:** the strip below the hero shows non-numerical trust
   points ("Manual Research", "Accurate Business Data", "International
   Support", "Clear Reporting") rather than invented statistics. If you
@@ -144,7 +152,55 @@ match one of the icons in the `ICONS` object further down in `script.js`
   (`<section class="trust-strip">`) — but only with figures you can stand
   behind.
 
-## E. About section
+## E. Local Citation Services by Country
+
+The "Countries" section (`id="countries"` in `index.html`) renders entirely
+from `SITE_CONFIG.countries` in `script.js` — the HTML never needs manual
+editing to add, remove or reorder a country.
+
+```js
+countries: [
+  { name: "United States", region: "North America", gigUrl: "FIVERR_USA_GIG_URL" },
+  { name: "Germany", region: "Europe", gigUrl: "FIVERR_EUROPE_GIG_URL" },
+  ...
+]
+```
+
+**To add a new country:** add another object with the same shape anywhere
+in the array. `region` must be one of: `North America`, `Europe`,
+`Oceania`, `Middle East`, `Asia`, `Africa`, `Latin America` — cards are
+automatically grouped and sub-headed by region, in that order. If you add a
+country whose name isn't already in the `COUNTRY_FLAGS` lookup just above
+`renderCountries()`, add its flag emoji there too (falls back to a generic
+🌍 icon if you skip this).
+
+**To replace a Fiverr placeholder with a real gig URL:** find the country's
+entry and replace its `gigUrl` value with the real Fiverr link, e.g.:
+
+```js
+{ name: "United States", region: "North America", gigUrl: "https://www.fiverr.com/your-real-usa-gig" }
+```
+
+The card updates automatically — a real URL (anything not ending in
+`_GIG_URL`) becomes a live "View Service →" button that opens in a new tab
+with `rel="noopener noreferrer"`; a placeholder value shows "Service Coming
+Soon" and links to the Contact section instead, so nothing is ever a
+broken or fake link.
+
+Several countries intentionally share one placeholder token (e.g. every
+other European country uses `FIVERR_EUROPE_GIG_URL`) so that replacing one
+shared Fiverr gig link updates every country using that token at once. Six
+countries have their own dedicated token instead of a shared regional one
+— United States, Canada, United Kingdom, Australia, New Zealand and South
+Africa — matching the individual placeholders requested for those markets.
+
+The search box above the grid and the region groupings are both pure
+vanilla JavaScript (`setupCountrySearch()` in `script.js`) — no library.
+Selecting a country's button also updates the small summary panel above the
+grid with a short, factual, country-specific message (no invented stats,
+rankings or results).
+
+## F. About section
 
 The About section text in `index.html` (`id="about"`) intentionally avoids
 naming specific years of experience, project counts, certifications or
@@ -153,7 +209,7 @@ add — do not add unverified claims.
 
 ---
 
-## F. Deploying to GitHub Pages
+## G. Deploying to GitHub Pages
 
 1. Create a new GitHub repository. If your GitHub username is
    `Primecitationsseo`, name the repository
@@ -171,7 +227,7 @@ add — do not add unverified claims.
 
 No build step, server, database or paid hosting is required.
 
-## G. Connecting a custom domain later (optional)
+## H. Connecting a custom domain later (optional)
 
 1. Buy a domain from any registrar.
 2. In the repository, go to **Settings → Pages → Custom domain** and enter
@@ -187,7 +243,7 @@ No build step, server, database or paid hosting is required.
 6. Update `YOUR_WEBSITE_URL_HERE` everywhere in the project to the new
    custom domain.
 
-## H. Contact form (Formspree)
+## I. Contact form (Formspree)
 
 The contact form is already connected to Formspree:
 
@@ -212,7 +268,7 @@ directly through the `mailto:` link and the WhatsApp button.
 
 ---
 
-## I. SEO checklist
+## J. SEO checklist
 
 - [ ] Replace `YOUR_WEBSITE_URL_HERE` in all meta tags, canonical link,
       Open Graph tags, JSON-LD schema, `robots.txt` and `sitemap.xml`
@@ -224,7 +280,7 @@ directly through the `mailto:` link and the WhatsApp button.
 - [ ] Confirm heading hierarchy is logical (H2 per section, H3 for cards)
 - [ ] Submit `sitemap.xml` in Google Search Console once the site is live
 
-## J. Performance checklist
+## K. Performance checklist
 
 - [ ] No external font requests (system font stack is used by design)
 - [ ] No JavaScript frameworks or icon libraries — all icons are inline SVG
@@ -233,7 +289,7 @@ directly through the `mailto:` link and the WhatsApp button.
 - [ ] Run the live site through Lighthouse / PageSpeed Insights once
       deployed and address any flagged issues specific to your hosting
 
-## K. Final testing checklist
+## L. Final testing checklist
 
 - [ ] All navigation links scroll to the correct section (verified — no
       broken anchors)
@@ -246,6 +302,8 @@ directly through the `mailto:` link and the WhatsApp button.
 - [ ] Test on a small mobile viewport (360–390px wide) for overlap or
       horizontal scrolling
 - [ ] Re-test after replacing every placeholder value
+- [ ] Countries section: search box filters cards correctly, region groups
+      hide when empty, and selecting a country updates the summary message
 
 ---
 
